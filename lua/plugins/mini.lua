@@ -27,12 +27,19 @@ return {
 			require("mini.surround").setup()
 			require("mini.tabline").setup()
 			require("mini.trailspace").setup()
-			require("mini.completion").setup()
+			-- require("mini.visits").setup()
+			-- require("mini.pick").setup({
+			-- 	mappings = {
+			-- 		choose = "<c-l>",
+			-- 		move_down = "<c-j>",
+			-- 		move_up = "<c-k>",
+			-- 	},
+			-- })
+			-- require("mini.extra").setup()
+			-- require("mini.completion").setup()
 			-- require("mini.ai").setup()
 			-- require('mini.icons').setup()
 			-- require('mini.diff').setup()
-			-- require("mini.pick").setup()
-			-- require("mini.extra").setup()
 
 			-- doesn't have block commenting
 			-- require('mini.comment').setup()

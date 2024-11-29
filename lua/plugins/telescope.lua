@@ -17,6 +17,9 @@ return {
 				lsp_references = {
 					initial_mode = "normal",
 				},
+				git_status = {
+					initial_mode = "normal",
+				},
 			},
 			defaults = {
 				layout_config = { height = 0.99, width = 0.99 },
@@ -37,11 +40,12 @@ return {
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "Telescope find files" })
 		vim.keymap.set("n", "<leader>/", builtin.live_grep, { desc = "Telescope live grep" })
-		vim.keymap.set("n", "<Tab>", builtin.buffers, { desc = "Telescope buffers" })
+		-- vim.keymap.set("n", "<Tab>", builtin.buffers, { desc = "Telescope buffers" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 		vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "Telescope lsp references" })
 		vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "Telescope lsp definitions" })
 		vim.keymap.set("n", "gD", builtin.lsp_type_definitions, { desc = "Telescope lsp type definitions" })
 		vim.keymap.set("n", "<leader>r", builtin.pickers, { desc = "Telescope pickers (resume searching)" })
+		vim.keymap.set("n", "<leader>s", builtin.git_status, { desc = "Telescope git status" })
 	end,
 }

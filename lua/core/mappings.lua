@@ -4,12 +4,17 @@ vim.g.mapleader = " "
 -- insert
 vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("i", "jk", "<Esc>")
+vim.keymap.set("i", "jl", "<Esc>")
 
 -- motions
 vim.keymap.set("i", "<c-l>", "<Right>")
 vim.keymap.set("i", "<c-h>", "<Left>")
 vim.keymap.set("i", "<c-j>", "<Down>")
 vim.keymap.set("i", "<c-k>", "<Up>")
+vim.keymap.set("t", "<c-l>", "<Right>")
+vim.keymap.set("t", "<c-h>", "<Left>")
+vim.keymap.set("t", "<c-j>", "<Down>")
+vim.keymap.set("t", "<c-k>", "<Up>")
 
 -- buffers
 vim.keymap.set("n", "<leader>w", ":w<CR>")
@@ -21,6 +26,7 @@ vim.keymap.set("n", "gI", vim.diagnostic.setloclist, { desc = "Open diagnostics 
 
 -- neo-tree
 vim.keymap.set("n", "<leader>e", ":Neotree toggle float<CR>")
+vim.keymap.set("n", "<leader>E", ":Neotree reveal float<CR>")
 
 -- mini-pick
 -- vim.keymap.set('n', '<leader>f', ':Pick files<CR>')
@@ -29,6 +35,14 @@ vim.keymap.set("n", "<leader>e", ":Neotree toggle float<CR>")
 
 -- mini-trailspace
 vim.keymap.set("n", "<leader>ts", ":lua MiniTrailspace.trim()<CR>")
+
+-- mini-visits
+-- vim.keymap.set(
+-- 	"n",
+-- 	"<Tab>",
+-- 	-- ":lua MiniVisits.select_path(nil, {sort = MiniVisits.gen_sort.default({recency_weight = 1})})"
+-- 	":Pick visit_paths cwd='./' recency_weight=1<CR>"
+-- )
 
 -- navigation
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
@@ -54,7 +68,8 @@ vim.keymap.set("n", "<leader>g", ":LazyGit<CR>")
 -- fzf
 -- vim.keymap.set("n", "<leader>f", ":FzfLua files<CR>")
 -- vim.keymap.set("n", "<leader>/", ":FzfLua live_grep<CR>")
--- vim.keymap.set("n", "<Tab>", ":FzfLua buffers<CR>")
+vim.keymap.set("n", "<Tab>", ":FzfLua buffers<CR>")
+vim.keymap.set("n", "<leader><leader>", ":FzfLua buffers<CR>")
 -- vim.keymap.set("n", "gr", ":FzfLua lsp_references<CR>")
 -- vim.keymap.set("n", "<leader>fh", ":FzfLua helptags<CR>")
 -- vim.keymap.set("n", "<leader>/", ":FzfLua live_grep resume=true<CR>")
@@ -79,6 +94,7 @@ vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 -- vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
 
 -- other
 vim.keymap.set("n", "<leader>q", ":q<CR>")
