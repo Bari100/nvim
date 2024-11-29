@@ -3,9 +3,21 @@ vim.g.mapleader = " "
 
 -- insert
 vim.keymap.set("i", "jj", "<Esc>")
+vim.keymap.set("i", "jk", "<Esc>")
+
+-- motions
+vim.keymap.set("i", "<c-l>", "<Right>")
+vim.keymap.set("i", "<c-h>", "<Left>")
+vim.keymap.set("i", "<c-j>", "<Down>")
+vim.keymap.set("i", "<c-k>", "<Up>")
 
 -- buffers
 vim.keymap.set("n", "<leader>w", ":w<CR>")
+
+-- diagnostic
+vim.keymap.set("n", "gh", vim.lsp.buf.hover, { desc = "Open information about the symbol" })
+vim.keymap.set("n", "gi", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
+vim.keymap.set("n", "gI", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- neo-tree
 vim.keymap.set("n", "<leader>e", ":Neotree toggle float<CR>")
@@ -38,6 +50,29 @@ vim.keymap.set("n", "<leader>d", ":bdelete<CR>")
 
 -- git
 vim.keymap.set("n", "<leader>g", ":LazyGit<CR>")
+
+-- fzf
+-- vim.keymap.set("n", "<leader>f", ":FzfLua files<CR>")
+-- vim.keymap.set("n", "<leader>/", ":FzfLua live_grep<CR>")
+-- vim.keymap.set("n", "<Tab>", ":FzfLua buffers<CR>")
+-- vim.keymap.set("n", "gr", ":FzfLua lsp_references<CR>")
+-- vim.keymap.set("n", "<leader>fh", ":FzfLua helptags<CR>")
+-- vim.keymap.set("n", "<leader>/", ":FzfLua live_grep resume=true<CR>")
+-- vim.keymap.set("n", "<leader>r", ":FzfLua resume<CR>")
+
+-- toggleterm
+function _G.set_terminal_keymaps()
+	local opts = { buffer = 0 }
+	vim.keymap.set("t", "<esc><esc>", [[<C-\><C-n>]], opts)
+	-- vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
+	-- vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
+	-- vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+	-- vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
+	-- vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
+	-- vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
+end
+
+vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
 -- lsp
 -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<CMD>lua vim.lsp.buf.definition()<CR>', { noremap=true, silent=true })
