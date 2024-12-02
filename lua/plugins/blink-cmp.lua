@@ -1,5 +1,7 @@
 return {
 	"saghen/blink.cmp",
+	branch = "main",
+	commit = "12d9ecd98055423fa76dfcf05b856967129b8847",
 	lazy = false, -- lazy loading handled internally
 	-- optional: provides snippets for the snippet source
 	dependencies = "rafamadriz/friendly-snippets",
