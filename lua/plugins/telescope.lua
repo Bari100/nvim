@@ -12,32 +12,19 @@ return {
 				pickers = {
 					initial_mode = "normal",
 				},
-				find_files = {
-					cache_picker = {
-						ignore_empty_prompt = true,
-					},
-				},
-				live_grep = {
-					cache_picker = {
-						ignore_empty_prompt = true,
-					},
-				},
 				buffers = {
 					ignore_current_buffer = true,
 					sort_mru = true,
 					initial_mode = "normal",
-					cache_picker = {
-						ignore_empty_prompt = true,
-					},
 				},
 				lsp_definitions = {
 					initial_mode = "normal",
-					cache_picker = {
-						ignore_empty_prompt = true,
-					},
 				},
 				lsp_references = {
 					initial_mode = "normal",
+					cache_picker = {
+						ignore_empty_prompt = false,
+					},
 				},
 				git_status = {
 					initial_mode = "normal",
@@ -55,6 +42,7 @@ return {
 				},
 				cache_picker = {
 					num_pickers = 10,
+					ignore_empty_prompt = true,
 				},
 			},
 		})
