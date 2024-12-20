@@ -3,7 +3,7 @@ return {
 	version = "*",
 	config = function()
 		require("toggleterm").setup({
-			open_mapping = [[<c-/>]],
+			open_mapping = [[<c-\>]],
 			direction = "float",
 			float_opts = {
 				-- The border key is *almost* the same as 'nvim_open_win'
