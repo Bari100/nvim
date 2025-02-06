@@ -111,7 +111,21 @@ vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 -- vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>R", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true })
+keymap_set("n", "<leader>R", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true })
+keymap_set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
+
+-- refactoring
+keymap_set("x", "<leader>re", ":Refactor extract ")
+keymap_set("x", "<leader>rf", ":Refactor extract_to_file ")
+
+keymap_set("x", "<leader>rv", ":Refactor extract_var ")
+
+keymap_set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
+
+keymap_set("n", "<leader>rI", ":Refactor inline_func")
+
+keymap_set("n", "<leader>rb", ":Refactor extract_block")
+keymap_set("n", "<leader>rbf", ":Refactor extract_block_to_file")
 
 -- other
 keymap_set("n", "<leader>q", ":q<CR>")

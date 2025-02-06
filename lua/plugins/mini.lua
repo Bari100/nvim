@@ -27,6 +27,7 @@ return {
 			require("mini.surround").setup()
 			require("mini.tabline").setup()
 			require("mini.trailspace").setup()
+			require("mini.cursorword").setup()
 			-- require("mini.visits").setup()
 			-- require("mini.pick").setup({
 			-- 	mappings = {

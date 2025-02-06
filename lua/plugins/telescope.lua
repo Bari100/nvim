@@ -88,5 +88,13 @@ return {
 		keymap_set("n", "gD", builtin.lsp_type_definitions, { desc = "Telescope lsp type definitions" })
 		keymap_set("n", "<leader>r", builtin.pickers, { desc = "Telescope pickers (resume searching)" })
 		keymap_set("n", "<leader>s", builtin.git_status, { desc = "Telescope git status" })
+		keymap_set("n", "<leader>?", function()
+			builtin.grep_string({
+				shorten_path = true,
+				word_match = "-w",
+				only_sort_text = true,
+				search = "",
+			})
+		end, { desc = "Telescope fuzzy" })
 	end,
 }

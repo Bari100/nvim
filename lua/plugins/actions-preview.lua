@@ -1,6 +1,8 @@
+local keymap_set = require("utils.keymap-utils").keymap_set
+
 return {
 	"aznhe21/actions-preview.nvim",
 	config = function()
-		vim.keymap.set({ "v", "n" }, "ga", require("actions-preview").code_actions)
+		keymap_set({ "v", "n" }, "ga", require("actions-preview").code_actions)
 	end,
 }
