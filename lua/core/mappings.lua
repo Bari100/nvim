@@ -32,6 +32,9 @@ keymap_set("t", "<c-l>", "<Right>")
 keymap_set("t", "<c-h>", "<Left>")
 keymap_set("t", "<c-j>", "<Down>")
 keymap_set("t", "<c-k>", "<Up>")
+keymap_set("n", "gh", "0")
+keymap_set("n", "gs", "^")
+keymap_set("n", "gl", "$")
 
 -- buffers
 keymap_set("n", "<leader>w", ":w<CR>")
@@ -40,13 +43,15 @@ keymap_set("n", "<leader>w", ":w<CR>")
 --keymap_set('n', '<leader>x', ':BufferLinePickClose<CR>')
 keymap_set("n", "L", ":bnext<CR>")
 keymap_set("n", "H", ":bprev<CR>")
-keymap_set("n", "<leader>d", ":bdelete<CR>")
-keymap_set("n", "<leader>D", ":%bdelete<CR>")
+keymap_set("n", "<leader>bc", ":bdelete<CR>")
+keymap_set("n", "<leader>bC", ":%bdelete<CR>")
+-- TODO fix not finding buffer if file was deleted (or buffer was closed?)
+keymap_set("n", "ga", ":b#<CR>")
 
 -- diagnostic
-keymap_set("n", "gh", vim.lsp.buf.hover, { desc = "Open information about the symbol" })
-keymap_set("n", "gi", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-keymap_set("n", "gI", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+keymap_set("n", "<leader>k", vim.lsp.buf.hover, { desc = "Open information about the symbol" })
+keymap_set("n", "<leader>D", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
+keymap_set("n", "<leader>d", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- neo-tree
 keymap_set("n", "<leader>e", ":Neotree toggle float<CR>")
@@ -81,15 +86,22 @@ keymap_set("n", "\\", ":split<CR>")
 -- git
 keymap_set("n", "<leader>g", ":LazyGit<CR>")
 
+-- comment
+keymap_set("n", "<leader>c", function()
+	return vim.v.count == 0 and "<Plug>(comment_toggle_linewise_current)" or "<Plug>(comment_toggle_linewise_count)"
+end, { expr = true })
+keymap_set("x", "<leader>c", "<Plug>(comment_toggle_linewise_visual)")
+keymap_set("x", "<leader>C", "<Plug>(comment_toggle_blockwise_visual)")
+
 -- fzf
--- keymap_set("n", "<leader>f", ":FzfLua files<CR>")
--- keymap_set("n", "<leader>/", ":FzfLua live_grep<CR>")
--- keymap_set("n", "<Tab>", ":FzfLua buffers<CR>")
--- keymap_set("n", "<leader><leader>", ":FzfLua buffers<CR>")
--- keymap_set("n", "gr", ":FzfLua lsp_references<CR>")
--- keymap_set("n", "<leader>fh", ":FzfLua helptags<CR>")
--- keymap_set("n", "<leader>/", ":FzfLua live_grep resume=true<CR>")
--- keymap_set("n", "<leader>r", ":FzfLua resume<CR>")
+keymap_set("n", "<leader>f", ":FzfLua files<CR>")
+keymap_set("n", "<leader>/", ":FzfLua live_grep<CR>")
+keymap_set("n", "<Tab>", ":FzfLua buffers<CR>")
+keymap_set("n", "<leader><leader>", ":FzfLua buffers<CR>")
+keymap_set("n", "gr", ":FzfLua lsp_references<CR>")
+keymap_set("n", "<leader>fh", ":FzfLua helptags<CR>")
+keymap_set("n", "<leader>/", ":FzfLua live_grep resume=true<CR>")
+keymap_set("n", "<leader>r", ":FzfLua resume<CR>")
 
 -- toggleterm
 function _G.set_terminal_keymaps()
@@ -113,6 +125,7 @@ vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 -- vim.api.nvim_set_keymap("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
 keymap_set("n", "<leader>R", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true })
 keymap_set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
+keymap_set({ "n", "x" }, "<leader>a", '<cmd>lua require("fastaction").code_action()<CR>', { buffer = bufnr })
 
 -- refactoring
 keymap_set("x", "<leader>re", ":Refactor extract ")

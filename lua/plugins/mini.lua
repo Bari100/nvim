@@ -16,18 +16,17 @@ return {
 					hex_color = hipatterns.gen_highlighter.hex_color(),
 				},
 			})
-			require("mini.operators").setup({
-				replace = {
-					prefix = "",
-				},
-			})
+			-- require("mini.operators").setup({
+			-- 	replace = {
+			-- 		prefix = "",
+			-- 	},
+			-- })
 			require("mini.indentscope").setup()
 			require("mini.pairs").setup()
 			require("mini.statusline").setup()
 			require("mini.surround").setup()
 			require("mini.tabline").setup()
 			require("mini.trailspace").setup()
-			require("mini.cursorword").setup()
 			-- require("mini.visits").setup()
 			-- require("mini.pick").setup({
 			-- 	mappings = {
