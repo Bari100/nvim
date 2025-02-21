@@ -127,7 +127,13 @@ vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 -- vim.api.nvim_set_keymap("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
 keymap_set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true })
 keymap_set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
-keymap_set({ "n", "x" }, "<leader>a", '<cmd>lua require("fastaction").code_action()<CR>', { buffer = bufnr })
+keymap_set(
+	{ "n", "x" },
+	"<leader>a",
+	'<cmd>lua require("fastaction").code_action()<CR>',
+	-- { buffer = bufnr },
+	{ desc = "Perform code action" }
+)
 
 -- refactoring
 keymap_set("x", "<leader>re", ":Refactor extract ")
