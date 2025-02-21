@@ -22,6 +22,8 @@ return {
 		scratch = {
 			ft = "markdown",
 		},
+		dim = {},
+		indent = {},
 	},
 	keys = {
 		{
@@ -37,6 +39,18 @@ return {
 				Snacks.scratch.select()
 			end,
 			desc = "Select Scratch Buffer",
+		},
+		{
+			"<leader>sd",
+			function()
+				Snacks.dim()
+			end,
+		},
+		{
+			"<leader>sD",
+			function()
+				Snacks.dim.disable()
+			end,
 		},
 	},
 }

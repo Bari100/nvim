@@ -35,6 +35,7 @@ keymap_set("t", "<c-k>", "<Up>")
 keymap_set({ "n", "x" }, "gh", "0")
 keymap_set({ "n", "x" }, "gs", "^")
 keymap_set({ "n", "x" }, "gl", "$")
+keymap_set({ "n", "x" }, "ge", "G")
 
 -- buffers
 keymap_set("n", "<leader>w", ":w<CR>")
