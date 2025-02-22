@@ -102,24 +102,7 @@ end, { expr = true })
 keymap_set("x", "<leader>c", "<Plug>(comment_toggle_linewise_visual)")
 keymap_set("x", "<leader>C", "<Plug>(comment_toggle_blockwise_visual)")
 
--- fzf
--- keymap_set("n", "<leader>f", ":FzfLua files<CR>")
--- keymap_set("n", "<leader>/", ":FzfLua live_grep<CR>")
--- keymap_set("n", "<leader>b", ":FzfLua buffers<CR>")
--- keymap_set("n", "<leader><leader>", ":FzfLua buffers<CR>")
--- keymap_set("n", "gd", ":FzfLua lsp_definitions<CR>")
--- keymap_set("n", "gr", ":FzfLua lsp_references<CR>")
--- keymap_set("n", "<leader>s", ":FzfLua lsp_document_symbols<CR>", { desc = "Open symbol picker" })
--- keymap_set("n", "<leader>fh", ":FzfLua helptags<CR>")
--- keymap_set("n", "<leader>/", ":FzfLua live_grep resume=true<CR>")
--- keymap_set("n", "<leader>'", ":FzfLua resume<CR>")
-
 -- lsp
--- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<CMD>lua vim.lsp.buf.definition()<CR>', { noremap=true, silent=true })
--- vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
 keymap_set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true })
 keymap_set(
 	"n",
@@ -154,3 +137,4 @@ keymap_set("n", "<leader>q", ":q<CR>")
 
 -- deleting keymaps
 vim.keymap.del("n", "gcc")
+vim.keymap.del("x", "gc")
