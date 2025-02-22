@@ -5,6 +5,14 @@ return {
 	end,
 	config = function()
 		require("nvim-treesitter.configs").setup({
+			incremental_selection = {
+				enable = true,
+				keymaps = {
+					init_selection = "<a-o>",
+					node_incremental = "<a-o>",
+					node_decremental = "<a-i>",
+				},
+			},
 			-- A list of parser names, or "all" (the listed parsers MUST always be installed)
 			ensure_installed = { "javascript", "typescript" },
 

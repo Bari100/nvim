@@ -265,13 +265,13 @@ return {
 			end,
 			desc = "Buffer Lines",
 		},
-		-- {
-		-- 	"<leader>sc",
-		-- 	function()
-		-- 		Snacks.picker.command_history()
-		-- 	end,
-		-- 	desc = "Command History",
-		-- },
+		{
+			"<leader>;",
+			function()
+				Snacks.picker.command_history()
+			end,
+			desc = "Command History",
+		},
 		-- TODO maybe remove
 		{
 			"<leader>:",
