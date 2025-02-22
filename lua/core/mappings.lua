@@ -34,18 +34,26 @@ keymap_set("t", "<c-j>", "<Down>")
 keymap_set("t", "<c-k>", "<Up>")
 keymap_set({ "n", "x" }, "gh", "0")
 keymap_set({ "n", "x" }, "gs", "^")
-keymap_set({ "n", "x" }, "gl", "$")
+keymap_set({ "n", "x" }, "gl", "g_")
 keymap_set({ "n", "x" }, "ge", "G")
+
+-- selection
+-- NOTE this all doesn't work
+-- vim.keymap.del("n", "%")
+-- vim.api.nvim_set_keymap("n", "%", "<Nop>", { noremap = true, silent = true })
+-- vim.keymap.set("n", "%", "<Nop>", { noremap = true, silent = true })
+-- keymap_set("n", "%", "ggVG")
+keymap_set("n", "x", "V")
 
 -- buffers
 keymap_set("n", "<leader>w", ":w<CR>")
 --keymap_set('n', '<Tab>', ':BufferLineCycleNext<CR>')
 --keymap_set('n', '<s-Tab>', ':BufferLineCyclePrev<CR>')
 --keymap_set('n', '<leader>x', ':BufferLinePickClose<CR>')
-keymap_set("n", "L", ":bnext<CR>")
-keymap_set("n", "H", ":bprev<CR>")
-keymap_set("n", "<leader>BB", ":bdelete<CR>")
-keymap_set("n", "<leader>Bc", ":%bdelete<CR>")
+keymap_set("n", "gn", ":bnext<CR>")
+keymap_set("n", "gp", ":bprev<CR>")
+-- keymap_set("n", "<leader>B", ":bdelete<CR>", { desc = "Close the current buffer" })
+-- keymap_set("n", "<leader>Bc", ":%bdelete<CR>")
 -- TODO fix not finding buffer if file was deleted (or buffer was closed?)
 keymap_set("n", "ga", ":b#<CR>")
 
@@ -95,15 +103,16 @@ keymap_set("x", "<leader>c", "<Plug>(comment_toggle_linewise_visual)")
 keymap_set("x", "<leader>C", "<Plug>(comment_toggle_blockwise_visual)")
 
 -- fzf
-keymap_set("n", "<leader>f", ":FzfLua files<CR>")
-keymap_set("n", "<leader>/", ":FzfLua live_grep<CR>")
-keymap_set("n", "<Tab>", ":FzfLua buffers<CR>")
-keymap_set("n", "<leader>b", ":FzfLua buffers<CR>")
-keymap_set("n", "<leader><leader>", ":FzfLua buffers<CR>")
-keymap_set("n", "gr", ":FzfLua lsp_references<CR>")
-keymap_set("n", "<leader>fh", ":FzfLua helptags<CR>")
-keymap_set("n", "<leader>/", ":FzfLua live_grep resume=true<CR>")
-keymap_set("n", "<leader>'", ":FzfLua resume<CR>")
+-- keymap_set("n", "<leader>f", ":FzfLua files<CR>")
+-- keymap_set("n", "<leader>/", ":FzfLua live_grep<CR>")
+-- keymap_set("n", "<leader>b", ":FzfLua buffers<CR>")
+-- keymap_set("n", "<leader><leader>", ":FzfLua buffers<CR>")
+-- keymap_set("n", "gd", ":FzfLua lsp_definitions<CR>")
+-- keymap_set("n", "gr", ":FzfLua lsp_references<CR>")
+-- keymap_set("n", "<leader>s", ":FzfLua lsp_document_symbols<CR>", { desc = "Open symbol picker" })
+-- keymap_set("n", "<leader>fh", ":FzfLua helptags<CR>")
+-- keymap_set("n", "<leader>/", ":FzfLua live_grep resume=true<CR>")
+-- keymap_set("n", "<leader>'", ":FzfLua resume<CR>")
 
 -- toggleterm
 function _G.set_terminal_keymaps()
@@ -126,7 +135,13 @@ vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 -- vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
 keymap_set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true })
-keymap_set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
+keymap_set(
+	"n",
+	"<leader>o",
+	"<cmd>lua vim.lsp.buf.format()<CR>",
+	{ noremap = true, silent = true },
+	{ desc = "Format the file" }
+)
 keymap_set(
 	{ "n", "x" },
 	"<leader>a",
@@ -136,17 +151,20 @@ keymap_set(
 )
 
 -- refactoring
-keymap_set("x", "<leader>re", ":Refactor extract ")
-keymap_set("x", "<leader>rf", ":Refactor extract_to_file ")
-
-keymap_set("x", "<leader>rv", ":Refactor extract_var ")
-
-keymap_set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
-
-keymap_set("n", "<leader>rI", ":Refactor inline_func")
-
-keymap_set("n", "<leader>rb", ":Refactor extract_block")
-keymap_set("n", "<leader>rbf", ":Refactor extract_block_to_file")
+-- keymap_set("x", "<leader>re", ":Refactor extract ")
+-- keymap_set("x", "<leader>rf", ":Refactor extract_to_file ")
+--
+-- keymap_set("x", "<leader>rv", ":Refactor extract_var ")
+--
+-- keymap_set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
+--
+-- keymap_set("n", "<leader>rI", ":Refactor inline_func")
+--
+-- keymap_set("n", "<leader>rb", ":Refactor extract_block")
+-- keymap_set("n", "<leader>rbf", ":Refactor extract_block_to_file")
 
 -- other
 keymap_set("n", "<leader>q", ":q<CR>")
+
+-- deleting keymaps
+vim.keymap.del("n", "gcc")

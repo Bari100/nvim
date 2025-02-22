@@ -69,7 +69,7 @@ return {
 					miniclue.gen_clues.windows(),
 					miniclue.gen_clues.z(),
 				},
-				window = { config = { width = 50 } },
+				window = { config = { width = 60 }, delay = 100 },
 			})
 			-- require("mini.visits").setup()
 			-- require("mini.pick").setup({
