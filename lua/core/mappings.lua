@@ -59,21 +59,8 @@ keymap_set("n", "<leader>K", vim.diagnostic.open_float, { desc = "Show diagnosti
 keymap_set("n", "<leader>e", ":Neotree toggle float<CR>")
 keymap_set("n", "<leader>E", ":Neotree reveal float<CR>")
 
--- mini-pick
--- keymap_set('n', '<leader>f', ':Pick files<CR>')
--- keymap_set('n', '<leader><leader>', ':Pick grep_live<CR>')
--- keymap_set('n', '<leader>b', ':Pick buffers<CR>')
-
 -- mini-trailspace
 keymap_set("n", "<leader>ts", ":lua MiniTrailspace.trim()<CR>")
-
--- mini-visits
--- keymap_set(
--- 	"n",
--- 	"<Tab>",
--- 	-- ":lua MiniVisits.select_path(nil, {sort = MiniVisits.gen_sort.default({recency_weight = 1})})"
--- 	":Pick visit_paths cwd='./' recency_weight=1<CR>"
--- )
 
 -- navigation
 keymap_set("n", "<c-k>", ":wincmd k<CR>")
