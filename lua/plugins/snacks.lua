@@ -237,20 +237,6 @@ return {
 			end,
 			desc = "Resume",
 		},
-		-- {
-		-- 	"<leader>su",
-		-- 	function()
-		-- 		Snacks.picker.undo()
-		-- 	end,
-		-- 	desc = "Undo History",
-		-- },
-		-- {
-		-- 	"<leader>uC",
-		-- 	function()
-		-- 		Snacks.picker.colorschemes()
-		-- 	end,
-		-- 	desc = "Colorschemes",
-		-- },
 		-- LSP
 		{
 			"gd",
