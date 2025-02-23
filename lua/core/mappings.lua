@@ -91,13 +91,18 @@ keymap_set("n", "<leader>g", ":LazyGit<CR>")
 -- comment
 keymap_set("n", "<leader>c", function()
 	return vim.v.count == 0 and "<Plug>(comment_toggle_linewise_current)" or "<Plug>(comment_toggle_linewise_count)"
-end, { expr = true })
-keymap_set("x", "<leader>c", "<Plug>(comment_toggle_linewise_visual)")
-keymap_set("x", "<leader>C", "<Plug>(comment_toggle_blockwise_visual)")
+end, { expr = true, desc = "Comment/uncomment" })
+keymap_set("x", "<leader>c", "<Plug>(comment_toggle_linewise_visual)", { desc = "Comment/uncomment selection" })
+keymap_set("x", "<leader>C", "<Plug>(comment_toggle_blockwise_visual)", { desc = "Block comment/uncomment selection" })
 
 -- lsp
 -- TODO maybe using <cmd> is redundant here
-keymap_set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true })
+keymap_set(
+	"n",
+	"<leader>r",
+	"<cmd>lua vim.lsp.buf.rename()<CR>",
+	{ noremap = true, silent = true, desc = "Rename symbol" }
+)
 keymap_set(
 	"n",
 	"<leader>o",

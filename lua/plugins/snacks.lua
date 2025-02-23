@@ -47,6 +47,7 @@ return {
 			function()
 				Snacks.zen()
 			end,
+			desc = "Zen mode",
 		},
 		-- words ----------------------------------------------------
 		{
@@ -55,6 +56,7 @@ return {
 			function()
 				Snacks.words.jump()
 			end,
+			desc = "Navigate to next LSP reference",
 		},
 		-- lazygit ----------------------------------------------------
 		-- in commands.lua
