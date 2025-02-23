@@ -16,6 +16,10 @@ vim.api.nvim_create_user_command("Lz", function()
 	Snacks.lazygit()
 end, { nargs = 0 })
 
+vim.api.nvim_create_user_command("Zl", function()
+	Snacks.lazygit()
+end, { nargs = 0 })
+
 -- picker ----------------------------------------------------
 vim.api.nvim_create_user_command("Projects", function()
 	Snacks.picker.projects()
