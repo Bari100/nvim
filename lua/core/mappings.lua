@@ -36,6 +36,8 @@ keymap_set({ "n", "x" }, "gh", "0")
 keymap_set({ "n", "x" }, "gs", "^")
 keymap_set({ "n", "x" }, "gl", "g_")
 keymap_set({ "n", "x" }, "ge", "G")
+keymap_set("n", "<", "<<")
+keymap_set("n", ">", ">>")
 
 -- selection
 -- NOTE this all doesn't work
