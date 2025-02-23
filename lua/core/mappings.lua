@@ -52,9 +52,8 @@ keymap_set("n", "gp", ":bprev<CR>")
 keymap_set("n", "ga", ":b#<CR>", { desc = "Go to last accessed file" })
 
 -- diagnostic
-keymap_set("n", "<leader>k", vim.lsp.buf.hover, { desc = "Open information about the symbol" })
-keymap_set("n", "<leader>D", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-keymap_set("n", "<leader>d", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+keymap_set("n", "<leader>k", vim.lsp.buf.hover, { desc = "Show docs for item under cursor" })
+keymap_set("n", "<leader>K", vim.diagnostic.open_float, { desc = "Show diagnostics for item under cursor" })
 
 -- neo-tree
 keymap_set("n", "<leader>e", ":Neotree toggle float<CR>")
@@ -97,13 +96,13 @@ keymap_set("x", "<leader>c", "<Plug>(comment_toggle_linewise_visual)")
 keymap_set("x", "<leader>C", "<Plug>(comment_toggle_blockwise_visual)")
 
 -- lsp
+-- TODO maybe using <cmd> is redundant here
 keymap_set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true })
 keymap_set(
 	"n",
 	"<leader>o",
 	"<cmd>lua vim.lsp.buf.format()<CR>",
-	{ noremap = true, silent = true },
-	{ desc = "Format the file" }
+	{ noremap = true, silent = true, desc = "Format the file" }
 )
 keymap_set(
 	{ "n", "x" },
