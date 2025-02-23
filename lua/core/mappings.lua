@@ -6,7 +6,7 @@ keymap_set("v", "K", ":m '<-2<CR>gv=gv")
 keymap_set("x", "<leader>p", '"_dP')
 keymap_set("x", "<leader>p", '"_dP')
 
--- TODO not working. Find out why. Tried :checkhealth and it says that everything is ok with clipboard (pbcopy is used);
+-- TODO: not working. Find out why. Tried :checkhealth and it says that everything is ok with clipboard (pbcopy is used);
 -- also checked :registers
 keymap_set("n", "<leader>y", '"+Y')
 -- keymap_set("v", "<leader>y", '"+y')
@@ -37,7 +37,7 @@ keymap_set("n", "<", "<<")
 keymap_set("n", ">", ">>")
 
 -- selection
--- TODO this all doesn't work
+-- TODO: this all doesn't work
 -- vim.keymap.del("n", "%")
 -- vim.api.nvim_set_keymap("n", "%", "<Nop>", { noremap = true, silent = true })
 -- vim.keymap.set("n", "%", "<Nop>", { noremap = true, silent = true })
@@ -48,7 +48,7 @@ keymap_set("n", "x", "V")
 keymap_set("n", "<leader>w", ":w<CR>", { desc = "Write changes to disc" })
 keymap_set("n", "gn", ":bnext<CR>")
 keymap_set("n", "gp", ":bprev<CR>")
--- TODO fix not finding buffer if file was deleted (or buffer was closed?)
+-- TODO: fix not finding buffer if file was deleted (or buffer was closed?)
 keymap_set("n", "ga", ":b#<CR>", { desc = "Go to last accessed file" })
 
 -- diagnostic
@@ -83,7 +83,7 @@ keymap_set("x", "<leader>c", "<Plug>(comment_toggle_linewise_visual)", { desc = 
 keymap_set("x", "<leader>C", "<Plug>(comment_toggle_blockwise_visual)", { desc = "Block comment/uncomment selection" })
 
 -- lsp
--- TODO maybe using <cmd> is redundant here
+-- TODO: maybe using <cmd> is redundant here
 keymap_set(
 	"n",
 	"<leader>r",
