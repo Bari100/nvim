@@ -1,5 +1,5 @@
 return {
 	"folke/trouble.nvim",
 	cmd = "Trouble",
-	opts = {},
+	opts = { win = { position = "right", size = 0.3 } },
 }
