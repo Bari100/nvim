@@ -1,7 +1,7 @@
 return {
 	"saghen/blink.cmp",
 	branch = "main",
-	commit = "12d9ecd98055423fa76dfcf05b856967129b8847",
+	-- commit = "12d9ecd98055423fa76dfcf05b856967129b8847",
 	lazy = false, -- lazy loading handled internally
 	-- optional: provides snippets for the snippet source
 	dependencies = "rafamadriz/friendly-snippets",
@@ -21,7 +21,13 @@ return {
 		-- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
 		-- see the "default configuration" section below for full documentation on how to define
 		-- your own keymap.
-		keymap = { preset = "enter" },
+		-- NOTE: selecting with tab (<C-n/p> also works) and accepting with enter
+		keymap = {
+			preset = "enter",
+
+			["<S-Tab>"] = { "select_prev", "fallback" },
+			["<Tab>"] = { "select_next", "fallback" },
+		},
 
 		appearance = {
 			-- Sets the fallback highlight groups to nvim-cmp's highlight groups
@@ -36,16 +42,30 @@ return {
 		-- default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, via `opts_extend`
 		sources = {
-			completion = {
-				enabled_providers = { "lsp", "path", "snippets", "buffer" },
-			},
+			default = { "lsp", "path", "snippets", "buffer" },
 		},
 
-		-- experimental auto-brackets support
-		-- completion = { accept = { auto_brackets = { enabled = true } } }
+		-- NOTE: auto-brackets, showing docs, auto-insert
+		completion = {
+			accept = { auto_brackets = { enabled = true } },
+			documentation = {
+				auto_show = true,
+				auto_show_delay_ms = 100,
+				update_delay_ms = 10,
+			},
+			menu = {
+				draw = { columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } } },
+				-- NOTE: turn off if searching text
+				auto_show = function(ctx)
+					return ctx.mode ~= "cmdline" or not vim.tbl_contains({ "/", "?" }, vim.fn.getcmdtype())
+				end,
+			},
+			list = { selection = { preselect = false, auto_insert = true } },
+		},
 
+		-- NOTE: showing function info when inside parenthesis
 		-- experimental signature help support
-		-- signature = { enabled = true }
+		signature = { enabled = true, window = { show_documentation = true } },
 	},
 	-- allows extending the enabled_providers array elsewhere in your config
 	-- without having to redefine it
