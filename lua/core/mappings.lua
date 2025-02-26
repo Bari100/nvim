@@ -36,6 +36,21 @@ keymap_set({ "n", "x" }, "ge", "G")
 keymap_set("n", "<", "<<")
 keymap_set("n", ">", ">>")
 
+-- quickfix list
+-- TODO: fix by checking if in qfix list buffer
+local function pcall_panic(func, msg, ...)
+	local ok, error = pcall(func, ...)
+	if not ok then
+		vim.notify(msg or error, vim.log.levels.MESSAGE)
+	end
+end
+keymap_set("n", "H", function()
+	pcall_panic(vim.cmd.colder, "At bottom of quickfix stack", { bang = false, mods = { silent = true } })
+end)
+keymap_set("n", "L", function()
+	pcall_panic(vim.cmd.cnewer, "At top of quickfix stack", { bang = false, mods = { silent = true } })
+end)
+
 -- selection
 -- TODO: this all doesn't work
 -- vim.keymap.del("n", "%")
