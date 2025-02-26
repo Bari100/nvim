@@ -293,48 +293,4 @@ return {
 			},
 		},
 	},
-	{
-		"folke/trouble.nvim",
-		optional = true,
-		specs = {
-			"folke/snacks.nvim",
-			opts = function(_, opts)
-				return vim.tbl_deep_extend("force", opts or {}, {
-					picker = {
-						actions = require("trouble.sources.snacks").actions,
-						win = {
-							input = {
-								keys = {
-									["<c-t>"] = {
-										"trouble_open",
-										mode = { "n", "i" },
-									},
-								},
-							},
-						},
-					},
-				})
-			end,
-		},
-	},
-	{
-		"folke/todo-comments.nvim",
-		optional = true,
-		keys = {
-			{
-				"<leader>T",
-				function()
-					Snacks.picker.todo_comments()
-				end,
-				desc = "Todo",
-			},
-			-- {
-			-- 	"<leader>sT",
-			-- 	function()
-			-- 		Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } })
-			-- 	end,
-			-- 	desc = "Todo/Fix/Fixme",
-			-- },
-		},
-	},
 }
