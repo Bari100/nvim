@@ -18,13 +18,6 @@ local function open_single_or_multi(bufnr)
 	end
 end
 
-local function open_buffer(bufnr)
-	local actions = require("telescope.actions")
-	local builtin = require("telescope.builtin")
-	builtin.buffers(bufnr)
-	actions.select_default(bufnr)
-end
-
 return {
 	"nvim-telescope/telescope.nvim",
 	-- tag = "0.1.8",
@@ -85,7 +78,7 @@ return {
 			},
 		})
 		local builtin = require("telescope.builtin")
-		keymap_set("n", "ga", open_buffer, { desc = "Prev buf" })
+		-- keymap_set("n", "ga", open_buffer, { desc = "Prev buf" })
 		keymap_set("n", "<leader>'", builtin.pickers, { desc = "Telescope pickers history" })
 		keymap_set("n", "<leader>f", builtin.find_files, { desc = "Telescope find files" })
 		-- keymap_set("n", "<leader>/", builtin.live_grep, { desc = "Telescope live grep" })
