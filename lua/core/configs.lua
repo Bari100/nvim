@@ -16,3 +16,22 @@ vim.opt.wrap = false
 vim.opt.termguicolors = true
 vim.opt.spelllang = { "en_us", "ru_ru" }
 vim.opt.spell = true
+
+vim.opt.numberwidth = 1
+vim.opt.signcolumn = "yes:1"
+vim.opt.statuscolumn = "%l%s"
+vim.opt.cursorline = true
+
+-- NOTE: turn off letters W and E in the left of the screen
+vim.diagnostic.config({
+	signs = false,
+})
+
+-- NOTE: lsp folds - try it later
+-- vim.o.fillchars = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:"
+-- vim.o.foldcolumn = "1"
+-- vim.o.foldenable = true
+-- vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+-- vim.o.foldlevel = 99
+-- vim.o.foldlevelstart = 99
+-- vim.o.foldmethod = "expr"
