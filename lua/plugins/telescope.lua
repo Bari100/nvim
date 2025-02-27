@@ -78,6 +78,7 @@ return {
 			},
 		})
 		local builtin = require("telescope.builtin")
+		keymap_set("n", "<leader>'", builtin.pickers, { desc = "Telescope pickers history" })
 		keymap_set("n", "<leader>f", builtin.find_files, { desc = "Telescope find files" })
 		-- keymap_set("n", "<leader>/", builtin.live_grep, { desc = "Telescope live grep" })
 		keymap_set({ "n" }, "<leader>b", builtin.buffers, { desc = "Telescope buffers" })

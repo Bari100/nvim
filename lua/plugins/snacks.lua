@@ -161,13 +161,6 @@ return {
 				end,
 				desc = "Marks",
 			},
-			{
-				"<leader>'",
-				function()
-					Snacks.picker.resume()
-				end,
-				desc = "Resume",
-			},
 		},
 	},
 }
