@@ -61,7 +61,14 @@ return {
 				},
 			},
 			defaults = {
-				layout_config = { height = 0.99, width = 0.99 },
+				layout_config = {
+					-- height = 0.99,
+					-- width = 0.99,
+					horizontal = {
+						prompt_position = "top",
+					},
+				},
+				sorting_strategy = "ascending",
 				mappings = {
 					i = {
 						-- ["L"] = require("telescope.actions").cycle_history_next,
@@ -90,7 +97,8 @@ return {
 		keymap_set("n", "gd", builtin.lsp_definitions, { desc = "Telescope lsp definitions" })
 		-- keymap_set("n", "gD", builtin.lsp_declarations, { desc = "Telescope lsp declarations" })
 		keymap_set("n", "gy", builtin.lsp_type_definitions, { desc = "Telescope lsp type definitions" })
-		keymap_set("n", "<leader>s", builtin.lsp_document_symbols, { desc = "LSP Symbols" })
+		-- symbols are showed in trouble
+		-- keymap_set("n", "<leader>s", builtin.lsp_document_symbols, { desc = "LSP Symbols" })
 		keymap_set("n", "<leader>g", builtin.git_status, { desc = "Telescope git status" })
 		keymap_set("n", "<leader>/", function()
 			builtin.grep_string({
