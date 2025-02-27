@@ -62,8 +62,8 @@ return {
 			},
 			defaults = {
 				layout_config = {
-					-- height = 0.99,
-					-- width = 0.99,
+					height = 0.99,
+					width = 0.99,
 					horizontal = {
 						prompt_position = "top",
 					},
