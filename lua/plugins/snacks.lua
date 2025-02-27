@@ -119,20 +119,6 @@ return {
 				end,
 				desc = "Buffer Lines",
 			},
-			{
-				"<leader>;",
-				function()
-					Snacks.picker.command_history()
-				end,
-				desc = "Command History",
-			},
-			{
-				"<leader>H",
-				function()
-					Snacks.picker.help()
-				end,
-				desc = "Help Pages",
-			},
 			-- {
 			-- 	"<leader>sk",
 			-- 	function()

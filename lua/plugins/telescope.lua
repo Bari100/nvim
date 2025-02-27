@@ -18,6 +18,13 @@ local function open_single_or_multi(bufnr)
 	end
 end
 
+local function open_buffer(bufnr)
+	local actions = require("telescope.actions")
+	local builtin = require("telescope.builtin")
+	builtin.buffers(bufnr)
+	actions.select_default(bufnr)
+end
+
 return {
 	"nvim-telescope/telescope.nvim",
 	-- tag = "0.1.8",
@@ -78,12 +85,13 @@ return {
 			},
 		})
 		local builtin = require("telescope.builtin")
+		keymap_set("n", "ga", open_buffer, { desc = "Prev buf" })
 		keymap_set("n", "<leader>'", builtin.pickers, { desc = "Telescope pickers history" })
 		keymap_set("n", "<leader>f", builtin.find_files, { desc = "Telescope find files" })
 		-- keymap_set("n", "<leader>/", builtin.live_grep, { desc = "Telescope live grep" })
 		keymap_set({ "n" }, "<leader>b", builtin.buffers, { desc = "Telescope buffers" })
 		keymap_set({ "n" }, "<leader>d", builtin.diagnostics, { desc = "Telescope diagnosctics" })
-		-- keymap_set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
+		keymap_set("n", "<leader>H", builtin.help_tags, { desc = "Help pages" })
 		keymap_set("n", "gr", builtin.lsp_references, { desc = "Telescope lsp references" })
 		keymap_set("n", "gi", builtin.lsp_implementations, { desc = "Telescope lsp references" })
 		keymap_set("n", "gd", builtin.lsp_definitions, { desc = "Telescope lsp definitions" })
@@ -100,5 +108,6 @@ return {
 				search = "",
 			})
 		end, { desc = "Telescope fuzzy" })
+		keymap_set("n", "<leader>;", builtin.command_history, { desc = "Command History" })
 	end,
 }
