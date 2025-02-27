@@ -1,19 +1,17 @@
 local keymap_set = vim.keymap.set
 local keymap_del = vim.keymap.del
 
+-- leader
+vim.g.mapleader = " "
+
 keymap_set("v", "J", ":m '>+1<CR>gv=gv")
 keymap_set("v", "K", ":m '<-2<CR>gv=gv")
 keymap_set("x", "<leader>p", '"_dP')
 keymap_set("x", "<leader>p", '"_dP')
 
--- TODO: not working. Find out why. Tried :checkhealth and it says that everything is ok with clipboard (pbcopy is used);
--- also checked :registers
 keymap_set("n", "<leader>y", '"+Y')
--- keymap_set("v", "<leader>y", '"+y')
+keymap_set("v", "<leader>y", '"+y', { desc = "Yank selections to clipboard" })
 -- keymap_set("n", "<leader>Y", '"+Y')
-
--- leader
-vim.g.mapleader = " "
 
 -- insert
 keymap_set("i", "jj", "<Esc>")
