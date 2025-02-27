@@ -123,3 +123,7 @@ keymap_set("n", "<leader>q", ":ConfirmQuit<CR>", { desc = "Close the editor" })
 -- deleting keymaps
 keymap_del("n", "gcc")
 keymap_del("x", "gc")
+keymap_del("n", "grr")
+keymap_del("n", "grn")
+keymap_del("n", "gri")
+keymap_del("n", "gra")
