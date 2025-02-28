@@ -2,9 +2,9 @@ return {
 	{
 		"folke/trouble.nvim",
 		opts = {
-			win = { position = "right", size = 0.5 },
+			win = { position = "left", size = 0.3 },
 			auto_preview = false,
-			modes = { symbols = { auto_preview = true } },
+			modes = { symbols = { win = { position = "left", size = 0.3 }, auto_preview = true } },
 		}, -- for default options, refer to the configuration section for custom setup.
 		cmd = "Trouble",
 		keys = {

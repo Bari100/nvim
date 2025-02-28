@@ -17,7 +17,7 @@ vim.opt.termguicolors = true
 vim.opt.spelllang = { "en_us", "ru_ru" }
 vim.opt.spell = true
 
-vim.opt.numberwidth = 1
+vim.opt.numberwidth = 4
 vim.opt.signcolumn = "yes:1"
 vim.opt.statuscolumn = "%l%s"
 vim.opt.cursorline = true

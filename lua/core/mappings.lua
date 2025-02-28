@@ -109,13 +109,7 @@ keymap_set(
 	"<cmd>lua vim.lsp.buf.format()<CR>",
 	{ noremap = true, silent = true, desc = "Format the file" }
 )
-keymap_set(
-	{ "n", "x" },
-	"<leader>a",
-	'<cmd>lua require("fastaction").code_action()<CR>',
-	-- { buffer = bufnr },
-	{ desc = "Perform code action" }
-)
+keymap_set({ "n", "x" }, "<leader>a", vim.lsp.buf.code_action, { desc = "Perform code action" })
 
 -- confirm-quit
 keymap_set("n", "<leader>q", ":ConfirmQuit<CR>", { desc = "Close the editor" })

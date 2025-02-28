@@ -80,6 +80,7 @@ return {
 						auto_close = true,
 						follow_file = false,
 						layout = { preset = "default" },
+						focus = "input",
 					})
 				end,
 				desc = "Open file explorer in workspace root",
@@ -87,9 +88,10 @@ return {
 			{
 				"<leader>E",
 				function()
-					Snacks.explorer({
+					Snacks.picker.explorer({
 						auto_close = true,
 						layout = { preset = "default" },
+						focus = "input",
 					})
 				end,
 				desc = "Open file explorer at current buffer's directory",
