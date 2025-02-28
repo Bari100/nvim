@@ -88,7 +88,7 @@ return {
 			{
 				"<leader>E",
 				function()
-					Snacks.picker.explorer({
+					Snacks.explorer({
 						auto_close = true,
 						layout = { preset = "default" },
 						focus = "input",
@@ -120,6 +120,25 @@ return {
 					Snacks.picker.lines()
 				end,
 				desc = "Buffer Lines",
+			},
+			{
+				"<leader>b",
+				function()
+					Snacks.picker.buffers({
+						layout = { preset = "ivy", preview = false },
+						formatters = { file = { truncate = 1000 } },
+					})
+				end,
+				desc = "Buffers",
+			},
+			{
+				"ga",
+				function()
+					Snacks.picker
+						.buffers({ current = false, layout = { preset = "vscode", preview = false } })
+						:action("jump")
+				end,
+				desc = "Buffers",
 			},
 			-- {
 			-- 	"<leader>sk",
