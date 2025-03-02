@@ -84,6 +84,7 @@ return {
 		keymap_set("n", "<leader>'", builtin.pickers, { desc = "Telescope pickers history" })
 		keymap_set("n", "<leader>f", builtin.find_files, { desc = "Telescope find files" })
 		-- keymap_set("n", "<leader>/", builtin.live_grep, { desc = "Telescope live grep" })
+		-- buffers are shown in Snacks picker
 		-- keymap_set({ "n" }, "<leader>b", builtin.buffers, { desc = "Telescope buffers" })
 		keymap_set({ "n" }, "<leader>d", builtin.diagnostics, { desc = "Telescope diagnosctics" })
 		keymap_set("n", "gr", function()
@@ -93,7 +94,7 @@ return {
 		keymap_set("n", "gd", builtin.lsp_definitions, { desc = "Telescope lsp definitions" })
 		-- keymap_set("n", "gD", builtin.lsp_declarations, { desc = "Telescope lsp declarations" })
 		keymap_set("n", "gy", builtin.lsp_type_definitions, { desc = "Telescope lsp type definitions" })
-		-- symbols are showed in trouble
+		-- symbols are shown in trouble
 		-- keymap_set("n", "<leader>s", builtin.lsp_document_symbols, { desc = "LSP Symbols" })
 		keymap_set("n", "<leader>/", function()
 			builtin.grep_string({
