@@ -19,15 +19,3 @@ end, { nargs = 0 })
 vim.api.nvim_create_user_command("Zl", function()
 	Snacks.lazygit()
 end, { nargs = 0 })
-
--- trouble ----------------------------------------------------
-vim.api.nvim_create_autocmd("BufRead", {
-	callback = function(ev)
-		if vim.bo[ev.buf].buftype == "quickfix" then
-			vim.schedule(function()
-				vim.cmd([[cclose]])
-				vim.cmd([[Trouble qflist open]])
-			end)
-		end
-	end,
-})

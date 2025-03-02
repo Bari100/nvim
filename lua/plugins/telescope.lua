@@ -86,7 +86,9 @@ return {
 		-- keymap_set("n", "<leader>/", builtin.live_grep, { desc = "Telescope live grep" })
 		-- keymap_set({ "n" }, "<leader>b", builtin.buffers, { desc = "Telescope buffers" })
 		keymap_set({ "n" }, "<leader>d", builtin.diagnostics, { desc = "Telescope diagnosctics" })
-		keymap_set("n", "gr", builtin.lsp_references, { desc = "Telescope lsp references" })
+		keymap_set("n", "gr", function()
+			builtin.lsp_references({ opts = { include_current_line = true } })
+		end, { desc = "Telescope lsp references" })
 		keymap_set("n", "gi", builtin.lsp_implementations, { desc = "Telescope lsp references" })
 		keymap_set("n", "gd", builtin.lsp_definitions, { desc = "Telescope lsp definitions" })
 		-- keymap_set("n", "gD", builtin.lsp_declarations, { desc = "Telescope lsp declarations" })
@@ -101,6 +103,7 @@ return {
 				search = "",
 			})
 		end, { desc = "Telescope fuzzy" })
+		keymap_set("v", "<leader>/", builtin.grep_string, { desc = "Search string under cursor" })
 
 		keymap_set("n", "<leader>g", builtin.git_status, { desc = "Telescope git status" })
 		keymap_set("n", "<leader>H", builtin.help_tags, { desc = "Help pages" })
