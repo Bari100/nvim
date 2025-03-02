@@ -22,6 +22,9 @@ vim.opt.signcolumn = "yes:1"
 vim.opt.statuscolumn = "%l%s"
 vim.opt.cursorline = true
 
+-- bottom line
+vim.opt.laststatus = 3
+
 -- NOTE: turn off letters W and E in the left of the screen
 vim.diagnostic.config({
 	signs = false,

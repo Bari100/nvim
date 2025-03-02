@@ -108,6 +108,13 @@ return {
 			-- },
 			-- search
 			{
+				"<leader>H",
+				function()
+					Snacks.picker.help()
+				end,
+				desc = "Help Pages",
+			},
+			{
 				'<leader>"',
 				function()
 					Snacks.picker.registers()
@@ -161,13 +168,14 @@ return {
 			-- 	end,
 			-- 	desc = "Quickfix List",
 			-- },
-			{
-				"<leader>m",
-				function()
-					Snacks.picker.marks()
-				end,
-				desc = "Marks",
-			},
+			-- NOTE: seems like arrow.nvim does it better
+			-- {
+			-- 	"<leader>m",
+			-- 	function()
+			-- 		Snacks.picker.marks()
+			-- 	end,
+			-- 	desc = "Marks",
+			-- },
 		},
 	},
 }
