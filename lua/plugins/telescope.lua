@@ -86,7 +86,10 @@ return {
 		-- keymap_set("n", "<leader>/", builtin.live_grep, { desc = "Telescope live grep" })
 		-- NOTE: buffers are shown in Snacks picker
 		-- keymap_set({ "n" }, "<leader>b", builtin.buffers, { desc = "Telescope buffers" })
-		keymap_set({ "n" }, "<leader>d", builtin.diagnostics, { desc = "Telescope diagnosctics" })
+		keymap_set({ "n" }, "<leader>d", function()
+			builtin.diagnostics({ bufnr = 0 })
+		end, { desc = "Telescope diagnosctics" })
+		keymap_set({ "n" }, "<leader>D", builtin.diagnostics, { desc = "Telescope workspace diagnosctics" })
 		keymap_set("n", "gr", function()
 			builtin.lsp_references({ include_current_line = true })
 		end, { desc = "Telescope lsp references" })
