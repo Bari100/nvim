@@ -25,6 +25,18 @@ vim.opt.cursorline = true
 -- bottom line
 vim.opt.laststatus = 3
 
+-- Enable winbar with constant highlighting
+vim.opt.winbar = "%f"
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		-- Set the same colors for active and inactive winbars
+		vim.cmd([[
+            highlight! WinBar guifg=#ffffff guibg=#282828
+            highlight! WinBarNC guifg=#ffffff guibg=#282828
+        ]])
+	end,
+})
+
 -- NOTE: turn off letters W and E in the left of the screen
 vim.diagnostic.config({
 	signs = false,
