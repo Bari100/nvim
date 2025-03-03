@@ -80,7 +80,7 @@ return {
 						auto_close = true,
 						follow_file = false,
 						layout = { preset = "default" },
-						focus = "input",
+						-- focus = "input",
 					})
 				end,
 				desc = "Open file explorer in workspace root",
@@ -91,7 +91,7 @@ return {
 					Snacks.explorer({
 						auto_close = true,
 						layout = { preset = "default" },
-						focus = "input",
+						-- focus = "input",
 					})
 				end,
 				desc = "Open file explorer at current buffer's directory",
